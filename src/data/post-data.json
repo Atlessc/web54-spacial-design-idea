@@ -13,7 +13,7 @@
         },
         {
             "id": 2,
-            "authorName": "Nick",
+            "authorName": "Maddy",
             "postedDate": "2020-01-01",
             "authorProfilePictureSrc": "./user.png",
             "postImageSrc": "./space-2.jpg",
@@ -24,17 +24,6 @@
         },
         {
             "id": 3,
-            "authorName": "Joanna",
-            "postedDate": "2020-01-01",
-            "authorProfilePictureSrc": "./user.png",
-            "postImageSrc": "./space-2.jpg",
-            "postComment": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!",
-            "altName": "author's post",
-            "numberOfLikes": 50,
-            "numberOfComments": 2
-        },
-        {
-            "id": 4,
             "authorName": "Lil Jon",
             "postedDate": "2020-01-01",
             "authorProfilePictureSrc": "./user.png",
@@ -45,7 +34,7 @@
             "numberOfComments": 2
         },
         {
-            "id": 5,
+            "id": 4,
             "authorName": "t3.gg",
             "postedDate": "2020-01-01",
             "authorProfilePictureSrc": "./user.png",
@@ -56,7 +45,7 @@
             "numberOfComments": 2
         },
         {
-            "id": 6,
+            "id": 5,
             "authorName": "NileRed",
             "postedDate": "2020-01-01",
             "authorProfilePictureSrc": "./user.png",

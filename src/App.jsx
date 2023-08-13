@@ -59,9 +59,6 @@ function App() {
             <div className='level-3'>
             <Posts />
             </div>
-            <div className='level-4'>
-            <Posts />
-            </div>
           </div>
         </div>
       </div>
