@@ -1,12 +1,9 @@
 import './App.css'
 import React, {useEffect, useRef } from 'react'
-import Img1 from './assets/space-1.jpg'
-import Img2 from './assets/space-2.jpg'
-import HomeImg from './assets/home.png'
-import LoveImg from './assets/love.png'
-import Profile from './assets/user.png'
-import Support from './assets/mug.png'
-import Comment from './assets/comment.png'
+import Img1 from '/space-1.jpg'
+import NavBar from './components/Nav'
+import Posts from './components/Posts'
+
 
 function App() {
   const contentRef = useRef();
@@ -21,11 +18,27 @@ function App() {
       const xPercent = (x / contentRef.current.offsetWidth) * 100;
       const yPercent = (y / contentRef.current.offsetHeight) * 100;
 
-      const xPan = (xPercent - 50) / 1.5;
-      const yPan = (yPercent - 50) / 1.5;
+      const xRotate = (xPercent - 50) * 0.2;
+      const yRotate = (yPercent - 50) * -0.2;
+      const xTranslate = (xPercent - 50) * ((Math.sqrt(2) * -2)*Math.PI);
+      const yTranslate = (yPercent - 50) * ((Math.sqrt(2) * -2)*Math.PI);
 
-      backgroundRef.current.style.backgroundPosition = `${xPan}% ${yPan}%`;
-      cardContainerRef.current.style.transform = `translate(${xPan}px, ${yPan}px)`;
+
+      backgroundRef.current.style.transform = `perspective(600px) rotateX(${yRotate}deg) rotateY(${xRotate}deg) translateX(${xTranslate}px) translateY(${yTranslate}px)`;
+      cardContainerRef.current.style.transform = `perspective(600px) rotateX(${yRotate}deg) rotateY(${xRotate}deg) translateX(${xTranslate}px) translateY(${yTranslate}px)`;
+    });
+  }, []);
+
+  useEffect(() => {
+    contentRef.current.addEventListener('mouseleave', () => {
+      backgroundRef.current.style.transition = `all 750ms ease-in 5s`;
+      backgroundRef.current.style.transform = `perspective(600px) rotateX(0deg) rotateY(0deg)`;
+      cardContainerRef.current.style.transition = `all 750ms ease-in 5s`;
+      cardContainerRef.current.style.transform = `perspective(600px) rotateX(0deg) rotateY(0deg)`;
+    });
+    contentRef.current.addEventListener('mouseenter', () => {
+      backgroundRef.current.style.transition = `none`;
+      cardContainerRef.current.style.transition = `none`;
     });
   }, []);
 
@@ -34,65 +47,20 @@ function App() {
       <div className='app'>
         <div ref={backgroundRef} className='background-img' style={{backgroundImage: `url(${Img1})`}}></div>
         <div ref={contentRef} className='content'>
-          <div className='nav-container'>
-            <div><img className="nav-btn" src={Support} /></div>
-            <div><img className="nav-btn" src={HomeImg} /></div>
-            <div><img className="nav-btn" src={Profile} /></div>
-          </div>
+          <NavBar />
           <div ref={cardContainerRef} className='card-container'>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
+            
+            <div className='level-1'>
+            <Posts />
             </div>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
+            <div className='level-2'>
+            <Posts />
             </div>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
+            <div className='level-3'>
+            <Posts />
             </div>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
-            </div>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
-            </div>
-            <div className='card-item'>
-              <div className="card-author"><div className='interaction-pfp'>0</div>Author</div>
-              <div><img className='post-img' src={Img2} /></div>
-              <div className="card-postInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore nulla fugiat est enim repudiandae quaerat!</div>
-              <div className="card-interaction">
-                <div><img className='interaction-like' src={LoveImg} /></div>
-                <div><img className='interaction-comment' src={Comment}/></div>
-              </div>
+            <div className='level-4'>
+            <Posts />
             </div>
           </div>
         </div>
