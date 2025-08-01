@@ -7,7 +7,7 @@ import '../styles/Nav.css'
 export default function NavBar() {
     return (
         <div className='nav-container'>
-            <a href='https://ko-fi.com/web54devco' className='SupportBtn' aria-label='Support me' target="_blank">
+            <a href='https://ko-fi.com/web54devco' className='SupportBtn' aria-label='Support me' target="_blank" rel="noreferrer">
             <div tabIndex={1}>
                 <img className="nav-btn" src={Support} alt='Support me by buying me a coffee' />
             </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import postData from '../data/post-data.json';
 import LoveImg from '../assets/love.png';
 import CommentImg from '../assets/comment.png';
@@ -11,9 +10,9 @@ export default function Posts() {
           const tabIndexStart = index * 6 + 4;
           return (
             <div className='card-item' tabIndex={tabIndexStart} key={post.id}>
-              <div className="card-author" alt='authors name and profile picture'>
+              <div className="card-author">
                 <div className='interaction-pfp' tabIndex={tabIndexStart + 1}>
-                  <img src={post.authorProfilePictureSrc} alt="Author's porfile picture" />
+                  <img src={post.authorProfilePictureSrc} alt="Author's profile picture" />
                 </div>
                 {post.authorName}
               </div>
