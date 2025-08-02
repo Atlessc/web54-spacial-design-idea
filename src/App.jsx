@@ -1,5 +1,5 @@
 import './App.css'
-import React, {useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Img1 from '/space-1.jpg'
 import NavBar from './components/Nav'
 import Posts from './components/Posts'

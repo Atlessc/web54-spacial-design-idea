@@ -1,4 +1,3 @@
-import React from 'react';
 import postData from '../data/post-data.json';
 import LoveImg from '../assets/love.png';
 import CommentImg from '../assets/comment.png';
